@@ -1,0 +1,5 @@
+Media ta la Romana este:7.65
+Media ta la Matematica este:7.5
+Media ta la Istorie este:8
+Media ta la Geografie este:8
+Media ta la Informatica este:7.9

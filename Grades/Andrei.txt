@@ -1,0 +1,5 @@
+Romana|7,7,7|7
+Matematica|7,7,7|7
+Istorie|7,7,7
+Geografie|7,7,7
+Informatica|7,7,7|7
