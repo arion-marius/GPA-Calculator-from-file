@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
-using System.Reflection.Metadata;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace GPA_Calculator
 {
@@ -42,9 +38,7 @@ namespace GPA_Calculator
                 text[b++] = $"Media elevului/elevei {numeElev} este {medieGeneralaFinala}";
             }
             var fisierMedii = @"C:\\Users\\arion\\Desktop\\GPA\\GPA-Calculator-from-file\\medii.txt";
-            File.AppendAllLines(fisierMedii, text);
-
-
+            File.WriteAllLines(fisierMedii, text);
 
             static string[] GetLinii(string content)
                => content.Split(Environment.NewLine);
