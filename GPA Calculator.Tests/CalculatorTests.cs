@@ -22,31 +22,40 @@ namespace GPA_Calculator.Tests
         public void GetAverage_ReturnsZero_WhenGradesIsEmpty()
         {
             // Arrange
-            int[] grades = Array.Empty<int>();
+            //  int[] grades = Array.Empty<int>();)
+            List<int> grades = new List<int>();
+
+
 
             // Act
-            var calculator = new Calculator();
-            var result = calculator.GetAverage(grades, null);
+            //var calculator = new Calculator(grades, null);
+            //var result = calculator.GetAverage();
 
             // Assert
-            Assert.Equal(0, result);
+            //Assert.Equal(0, result);
+            Assert.Throws<ArgumentOutOfRangeException>(() => new Calculator(grades, null));
+
         }
 
         [Theory]
         [InlineData(0)]
         [InlineData(-1)]
         [InlineData(11)]
-        public void GetAverage_ReturnsZero_WhenGradesContainsInvalidGrades(int grade)
+        public void GetAverage_ReturnsZero_WhenGradesContainsInvalidGrades(int grades)
         {
             // Arrange
-            int[] grades = new int[] { grade};
+            //int[] grade = new int[] { grades };)
+            List<int> grade = new List<int>(1) { grades };
+
 
             // Act
-            var calculator = new Calculator();
-            var result = calculator.GetAverage(grades, null);
+            //var calculator = new Calculator(grade, null);
+            // var result = calculator.GetAverage();
 
             // Assert
-            Assert.Equal(0, result);
+            // Assert.Equal(0, result);
+            Assert.Throws<ArgumentOutOfRangeException>(() => new Calculator(grade, null));
+
         }
 
         [Theory]
@@ -57,14 +66,18 @@ namespace GPA_Calculator.Tests
             [Range(1, 10)] int grade1, [Range(1, 10)] int grade2, [Range(1, 10)] int grade3)
         {
             // Arrange
-            int[] grades = new int[3] { grade1, grade2, grade3 };
+            // int[] grades = new int[3] { grade1, grade2, grade3 };)
+            List<int> grades = new(3) { grade1, grade2, grade3 };
+
 
             // Act
-            var calculator = new Calculator();
-            var result = calculator.GetAverage(grades, thesis);
+            //var calculator = new Calculator(grades, thesis);
+            //var result = calculator.GetAverage();
 
             // Assert
-            Assert.Equal(0, result);
+            // Assert.Equal(0, result);
+            Assert.Throws<ArgumentOutOfRangeException>(() => new Calculator(grades, thesis));
+
         }
 
         [Theory]
@@ -75,11 +88,13 @@ namespace GPA_Calculator.Tests
             int grade1, int grade2, int thesis, double average)
         {
             // Arrange
-            int[] grades = new int[2] { grade1, grade2 };
+            //int[] grades = new int[2] { grade1, grade2 };)
+            List<int> grades = new List<int>() { grade1, grade2 };
+
 
             // Act stack vs heap
-            var calculator = new Calculator();
-            var result = calculator.GetAverage(grades, thesis);
+            var calculator = new Calculator(grades, thesis);
+            var result = calculator.GetAverage();
 
             // Assert
             Assert.Equal(average, result);
@@ -91,11 +106,13 @@ namespace GPA_Calculator.Tests
             int grade1, int grade2, int thesis, double average)
         {
             // Arrange
-            int[] grades = new int[2] { grade1, grade2 };
+            // int[] grades = new int[2] { grade1, grade2 };)
+            List<int> grades = new List<int>() { grade1, grade2 };
+
 
             // Act stack vs heap
-            var calculator = new Calculator();
-            var result = calculator.GetAverage(grades, thesis);
+            var calculator = new Calculator(grades, thesis);
+            var result = calculator.GetAverage();
 
             // Assert
             Assert.Equal(Math.Round(average, 2, MidpointRounding.AwayFromZero), result);

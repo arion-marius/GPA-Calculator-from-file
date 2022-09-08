@@ -15,13 +15,13 @@ namespace GPA_Calculator
                 throw new ArgumentOutOfRangeException(nameof(grades));
             }
 
-            if (Thesis.HasValue && (Thesis.Value < 1 || Thesis.Value > 10))
+            if (thesis.HasValue && (thesis.Value < 1 || thesis.Value > 10))
             {
                 throw new ArgumentOutOfRangeException(nameof(thesis));
             }
 
-            Grades = grades.ToList();
             Thesis = thesis;
+            Grades = grades.ToList();
         }
 
         public List<int>? Grades { get; set; }
@@ -44,7 +44,7 @@ namespace GPA_Calculator
 
             //return thesis == null
             //    ? Math.Round(sum / grades.Length, 2)
-            //    : Math.Round((sum / grades.Length * 3 + thesis.Value) / 4, 2);
+            //    : Math.Round((sum / grades.Length * 3 + thesis.Value) / 4, 2);)
         }
     }
 }
