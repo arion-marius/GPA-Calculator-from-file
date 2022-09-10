@@ -1,0 +1,3 @@
+Media elevului/elevei Andrei.txt este 7
+Media elevului/elevei Georgiana.txt este 7.81
+Media elevului/elevei Jasmina.txt este 7
